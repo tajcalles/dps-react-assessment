@@ -112,8 +112,6 @@ const styles = {
   }
 }
 const mapStateToProps = (state) => {
-  return{
-    beers: state.beers,
-  }
+  return{ beers: state.beers }
 }
 export default connect(mapStateToProps)(Beers);
