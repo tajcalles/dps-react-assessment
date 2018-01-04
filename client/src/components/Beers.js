@@ -9,7 +9,7 @@ import {
 } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { fetchBeers } from '../actions/beers';
-import beerStock from '../images/beer.jpg';
+import beerStock from '../images/beer-stock.jpg';
 import InfiniteScroll from 'react-infinite-scroller';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
