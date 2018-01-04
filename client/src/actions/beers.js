@@ -1,8 +1,20 @@
 import axios from 'axios';
+import { setFlash } from './flash';
 
-export const getBeers = () => {
-  return (dispatch) => {
-    axios.get('/api/all_beers_path')
-      .then( res => dispatch({ type: 'BEERS' , beers: res.data }) )
+const setBeers = (beers) => {
+  return { type: 'SET_BEERS', beers: beers }
+}
+
+export const fetchBeers = () => {
+  return dispatch => {
+    axios.get(`/api/all_beers?page=1`)
+      .then( res => {
+        dispatch(setBeers(res.data.entries))
+        console.log(res.data)
+      })
+      .catch( err => {
+        dispatch(setFlash('Error fetching beers.', 'red', 'inverted'))
+        console.log(err)
+    });
   }
 }
